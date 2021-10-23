@@ -77,14 +77,24 @@
             });
             $("body").find(".star").toggleClass("add");
             $("body").find(".uls").toggleClass("add");
-            $(".uls>li").click(function () {
-              $("body").find(".star").removeClass("add");
-              $("body").find(".uls").removeClass("add");
-              $("body").css({
-                overflow: "auto",
-                backgroundColor: "white",
+            $(document).ready(function () {
+              $("li").click(function () {
+                $("body").find(".star").removeClass("add");
+                $("body").find(".uls").removeClass("add");
+                $("body").css({
+                  overflow: "auto",
+                  backgroundColor: "white",
+                });
               });
             });
+            // $("li").click(function () {
+            //   $("body").find(".star").removeClass("add");
+            //   $("body").find(".uls").removeClass("add");
+            //   $("body").css({
+            //     overflow: "auto",
+            //     backgroundColor: "white",
+            //   });
+            // });
           });
 
           var ding = document.getElementById("ding");
@@ -273,7 +283,14 @@
           });
           $("body").find(".star").toggleClass("add");
           $("body").find(".uls").toggleClass("add");
-
+          $("li").click(function () {
+            $("body").find(".star").removeClass("add");
+            $("body").find(".uls").removeClass("add");
+            $("body").css({
+              overflow: "auto",
+              backgroundColor: "white",
+            });
+          });
           // .find("#all")
           // .css({ display: "none" });
         }
@@ -310,174 +327,166 @@
                   </div>
                 </div>
                 <div className="star w-100 "></div>
-                <div id="all">
-                  <div id="introduce" className="row w-100">
-                    <div className="">
-                      <img
-                        src="https://svgsilh.com/svg_v2/1632607.svg"
-                        alt=""
-                      />{" "}
-                      <div className="text p-4 w-50">
-                        <div className="hole w-100"></div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Dolore impedit, sint cumque architecto maiores
-                        aspernatur animi suscipit mollitia iusto voluptatem,
-                        aliquid reiciendis vero nobis facilis voluptas. Expedita
-                        voluptas fuga quos.
-                        <div className="hole w-100"></div>
-                      </div>
-                      <div className="photo-1">
-                        <img width="100%" src="" alt="" />
-                      </div>
-                      <div className="photo-2">
-                        <img src="" alt="" />
-                      </div>
-                      <button>
-                        <span>ipsum</span>
-                      </button>
+                <div id="introduce" className="row w-100">
+                  <div className="">
+                    <img src="https://svgsilh.com/svg_v2/1632607.svg" alt="" />{" "}
+                    <div className="text p-4 w-50">
+                      <div className="hole w-100"></div>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Dolore impedit, sint cumque architecto maiores aspernatur
+                      animi suscipit mollitia iusto voluptatem, aliquid
+                      reiciendis vero nobis facilis voluptas. Expedita voluptas
+                      fuga quos.
+                      <div className="hole w-100"></div>
                     </div>
-                  </div>
-                  <div id="ring" className="row w-100">
-                    <div className="branches">
-                      <div className="wrap">
-                        <div className="text ">
-                          <img
-                            width="100%"
-                            src="https://boxy-svg.com/images/logos/logo-full.svg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="text ">
-                          <img
-                            width="100%"
-                            src="https://boxy-svg.com/images/logos/logo-full.svg"
-                            alt=""
-                          />
-                        </div>
-                        <div className="text ">
-                          <img
-                            width="100%"
-                            src="https://boxy-svg.com/images/logos/logo-full.svg"
-                            alt=""
-                          />
-                        </div>
-                      </div>
-                      <img
-                        width="45%"
-                        src="https://svgsilh.com/svg/3005547.svg"
-                        alt=""
-                      />
-                      <img
-                        style={{
-                          display: this.state.isShow,
-                        }}
-                        width="15%"
-                        className=" later "
-                        src="https://svgsilh.com/svg_v2/1632607.svg"
-                        alt=""
-                      />
-
-                      <div className="flower-1"></div>
-                      <div className="flower-2"></div>
-                      <div className="flower-3"></div>
-                      <div className="flower-4"></div>
-                      <div className="flower-5"></div>
-                      <div className="flower-6"></div>
-                      <div className="flower-7"></div>
-                      <div className="flower-8"></div>
+                    <div className="photo-1">
+                      <img width="100%" src="" alt="" />
                     </div>
-                    <p onMouseDown={this.grow} onMouseUp={this.unGrow}>
-                      HOLD<i className="far fa-hand-point-up"></i>
-                    </p>
+                    <div className="photo-2">
+                      <img src="" alt="" />
+                    </div>
+                    <button>
+                      <span>ipsum</span>
+                    </button>
                   </div>
-                  <div id="carousel" className="row w-100 ">
-                    <h2 className="w-100">
-                      <i className="fas fa-users"></i>
-                    </h2>
-                    <p className="w-100">Lorem, ipsum dolor</p>
+                </div>
+                <div id="ring" className="row w-100">
+                  <div className="branches">
                     <div className="wrap">
-                      <div className="carpet">
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
+                      <div className="text ">
+                        <img
+                          width="100%"
+                          src="https://boxy-svg.com/images/logos/logo-full.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div className="text ">
+                        <img
+                          width="100%"
+                          src="https://boxy-svg.com/images/logos/logo-full.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div className="text ">
+                        <img
+                          width="100%"
+                          src="https://boxy-svg.com/images/logos/logo-full.svg"
+                          alt=""
+                        />
                       </div>
                     </div>
-                    <div className="w-100 time-show d-none">
-                      <span onClick={this.smallBefore}></span>
-                      <span onClick={this.smallNext}></span>
-                    </div>
-                    <div className="w-100">
-                      <div className="button">
-                        <i
-                          className="fas fa-arrow-left"
-                          onClick={this.before}
-                        ></i>
-                        <span></span>
-                        <i
-                          className="fas fa-arrow-right"
-                          onClick={this.next}
-                        ></i>
-                      </div>
+                    <img
+                      width="45%"
+                      src="https://svgsilh.com/svg/3005547.svg"
+                      alt=""
+                    />
+                    <img
+                      style={{
+                        display: this.state.isShow,
+                      }}
+                      width="15%"
+                      className=" later "
+                      src="https://svgsilh.com/svg_v2/1632607.svg"
+                      alt=""
+                    />
+
+                    <div className="flower-1"></div>
+                    <div className="flower-2"></div>
+                    <div className="flower-3"></div>
+                    <div className="flower-4"></div>
+                    <div className="flower-5"></div>
+                    <div className="flower-6"></div>
+                    <div className="flower-7"></div>
+                    <div className="flower-8"></div>
+                  </div>
+                  <p onMouseDown={this.grow} onMouseUp={this.unGrow}>
+                    HOLD<i className="far fa-hand-point-up"></i>
+                  </p>
+                </div>
+                <div id="carousel" className="row w-100 ">
+                  <h2 className="w-100">
+                    <i className="fas fa-users"></i>
+                  </h2>
+                  <p className="w-100">Lorem, ipsum dolor</p>
+                  <div className="wrap">
+                    <div className="carpet">
+                      <div className="card"></div>
+                      <div className="card"></div>
+                      <div className="card"></div>
+                      <div className="card"></div>
+                      <div className="card"></div>
+                      <div className="card"></div>
+                      <div className="card"></div>
+                      <div className="card"></div>
+                      <div className="card"></div>
+                      <div className="card"></div>
                     </div>
                   </div>
-                  <div id="slow-word" className="row">
-                    <div className="w-50 show">
-                      <h2 className="w-100">consectetur adipisicing</h2>
-                      <p className="w-100">ipsum dolor sit amet</p>
-                    </div>
-                    <div className="w-100 store">
-                      <img
-                        src="https://www.hualix.com/application/files/thumbnails/small/5615/3603/2435/str-2.jpg"
-                        alt=""
-                      />
-                    </div>
+                  <div className="w-100 time-show d-none">
+                    <span onClick={this.smallBefore}></span>
+                    <span onClick={this.smallNext}></span>
                   </div>
-                  <div id="attach"></div>
-                  <div id="picture" className="row">
-                    <div className="scope">
-                      <div className="photo">
-                        <img
-                          width="100%"
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKl-kml3NEYNBZDVYTi6LLrKPVVJuIS1EpFQ&usqp=CAU"
-                          alt=""
-                        />
-                      </div>
-                      <div className="photo">
-                        <img
-                          width="100%"
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRshC0yCj8W1OVendx845iUOqc0FVHF8ylKWg&usqp=CAU"
-                          alt=""
-                        />
-                      </div>
-                      <div className="photo">
-                        <img
-                          width="100%"
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-fipYeCNydsLiRK20xkgySrxBngW3tpZV9g&usqp=CAU"
-                          alt=""
-                        />
-                      </div>
-                      <div className="photo">
-                        <img
-                          width="100%"
-                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrM046kKD8lqyV1INFq4dflMhZAyVD_907A&usqp=CAU"
-                          alt=""
-                        />
-                      </div>
+                  <div className="w-100">
+                    <div className="button">
+                      <i
+                        className="fas fa-arrow-left"
+                        onClick={this.before}
+                      ></i>
+                      <span></span>
+                      <i className="fas fa-arrow-right" onClick={this.next}></i>
                     </div>
                   </div>
                 </div>
-                <div id="shake-flower" className="row">
-                  <div className="">
-                    <div class="zd" id="ding">
-                      <i className="far fa-arrow-alt-circle-up"></i>
+                <div id="slow-word" className="row">
+                  <div className="w-50 show">
+                    <h2 className="w-100">consectetur adipisicing</h2>
+                    <p className="w-100">ipsum dolor sit amet</p>
+                  </div>
+                  <div className="w-100 store">
+                    <img
+                      src="https://www.hualix.com/application/files/thumbnails/small/5615/3603/2435/str-2.jpg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div id="attach"></div>
+                <div id="picture" className="row">
+                  <div className="scope">
+                    <div className="photo">
+                      <img
+                        width="100%"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKl-kml3NEYNBZDVYTi6LLrKPVVJuIS1EpFQ&usqp=CAU"
+                        alt=""
+                      />
                     </div>
+                    <div className="photo">
+                      <img
+                        width="100%"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRshC0yCj8W1OVendx845iUOqc0FVHF8ylKWg&usqp=CAU"
+                        alt=""
+                      />
+                    </div>
+                    <div className="photo">
+                      <img
+                        width="100%"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-fipYeCNydsLiRK20xkgySrxBngW3tpZV9g&usqp=CAU"
+                        alt=""
+                      />
+                    </div>
+                    <div className="photo">
+                      <img
+                        width="100%"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrM046kKD8lqyV1INFq4dflMhZAyVD_907A&usqp=CAU"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="shake-flower" className="row">
+                <div className="">
+                  <div class="zd" id="ding">
+                    <i className="far fa-arrow-alt-circle-up"></i>
                   </div>
                 </div>
               </div>

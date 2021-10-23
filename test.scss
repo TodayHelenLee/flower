@@ -153,23 +153,6 @@
       margin-bottom: 10px;
     }
   }
-  .photo {
-    width: 35%;
-    height: 200px;
-    opacity: 1;
-    display: block;
-    @include pad {
-      display: inline-block;
-      width: 47% !important;
-      float: left;
-      margin-left: 6px;
-    }
-    @include hori {
-      display: inline-block;
-      width: 100% !important;
-      margin-top: 4px;
-    }
-  }
   .photo-1 {
     width: 35%;
     border-radius: 15px;
@@ -187,7 +170,7 @@
     }
     @include pad {
       display: inline-block;
-      width: 100% !important;
+      width: 48% !important;
       position: relative;
       right: 0%;
       margin-top: 0%;
@@ -267,7 +250,7 @@
       float: left;
       position: relative;
       display: inline-block;
-      width: 100% !important;
+      width: 48% !important;
       right: 0%;
       top: 0%;
       margin-top: 10px;

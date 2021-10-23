@@ -114,7 +114,7 @@
           //   $(".photo-1.addShow").find("img")[0].src =
           //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSvTa5-7TjHSHqZtCh2DBwj6qHZJ8TBBkBLQ&usqp=CAU";
           // }, 3500);
-          this.Sets = setInterval(() => {
+          setInterval(() => {
             var num = this.state.value;
             num = num - 1;
             this.setState({ value: num + 1 });
@@ -126,7 +126,7 @@
 
             // console.log(1);
             // this.smallNext();
-          }, 3500);
+          }, 3000);
           for (let i = 1; i < 9; i++) {
             $(`.flower-${i}`).css("display", "none");
           }
@@ -156,7 +156,7 @@
                 $(".photo-2").removeClass("addShow");
               }
 
-              if (scrollVal > 450 && scrollVal < 1400) {
+              if (scrollVal > 450 && scrollVal < 1000) {
                 setTimeout(() => {
                   $(" .text:nth-child(1)").addClass("out");
                 }, 200);
@@ -189,7 +189,6 @@
         }
 
         smallBefore() {
-          clearInterval(this.Sets);
           console.log(count);
           var count = this.state.value;
           count--;
@@ -206,7 +205,6 @@
           });
         }
         smallNext() {
-          clearInterval(this.Sets);
           var count = this.state.value;
           count++;
           console.log(count);
@@ -225,7 +223,6 @@
         }
 
         before() {
-          clearInterval(this.Sets);
           var count = this.state.value;
           count--;
           if (count <= -1) {
@@ -241,7 +238,6 @@
           });
         }
         next() {
-          clearInterval(this.Sets);
           var count = this.state.value;
           count++;
           if (count >= 10) {
@@ -343,15 +339,11 @@
                       fuga quos.
                       <div className="hole w-100"></div>
                     </div>
-                    <div class="photo">
-                      <div className="photo-1">
-                        <img width="100%" src="" alt="" />
-                      </div>
+                    <div className="photo-1">
+                      <img width="100%" src="" alt="" />
                     </div>
-                    <div class="photo">
-                      <div className="photo-2">
-                        <img src="" alt="" />
-                      </div>
+                    <div className="photo-2">
+                      <img src="" alt="" />
                     </div>
                     <button>
                       <span>ipsum</span>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.0/css/all.css"
+      integrity="sha512-z2kebVhgyJep2BVZe+e7Fcl3IQNSZalCrcAEb2Rge/m9ONeaxSIhUkVkxOd4XwJ38RKJ56oFf/XxeVOtYGFNLw=="
+      crossorigin="anonymous"
+    />
+    <title>Hello, world!</title>
+    <link rel="stylesheet" href="./test.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/babel">
+      class Ex extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            flowers: 0,
+            isShow: "none",
+            change: 400,
+            value: 0,
+            smallChange: 300,
+          };
+
+          this.grow = this.grow.bind(this);
+          this.unGrow = this.unGrow.bind(this);
+          this.before = this.before.bind(this);
+          this.next = this.next.bind(this);
+          this.smallBefore = this.smallBefore.bind(this);
+          this.smallNext = this.smallNext.bind(this);
+          this.lists = this.lists.bind(this);
+        }
+
+        componentDidMount() {
+          $(".star").click(function () {
+            $("body").css({
+              overflow: "auto",
+              backgroundColor: "white",
+            });
+            $("body").find(".star").toggleClass("add");
+            $("body").find(".uls").toggleClass("add");
+            $(".uls>li").click(function () {
+              $("body").find(".star").removeClass("add");
+              $("body").find(".uls").removeClass("add");
+              $("body").css({
+                overflow: "auto",
+                backgroundColor: "white",
+              });
+            });
+          });
+
+          var ding = document.getElementById("ding");
+          ding.addEventListener("click", function () {
+            var timer = setInterval(function () {
+              var left = window.pageYOffset;
+              var step = Math.ceil((left - 0) / 10);
+              window.scroll(0, left - step);
+              if (left == 0) {
+                clearInterval(timer);
+              }
+            }, 30);
+          });
+          // setTimeout(() => {
+          //   $(".photo-2.addShow").find("img")[0].src =
+          //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0UESxobPRbiIVUcrjAZhw5TkWmpBS7SHdSg&usqp=CAU";
+          //   $(".photo-1.addShow").find("img")[0].src =
+          //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSvTa5-7TjHSHqZtCh2DBwj6qHZJ8TBBkBLQ&usqp=CAU";
+          // }, 3500);
+          setInterval(() => {
+            var num = this.state.value;
+            num = num - 1;
+            this.setState({ value: num + 1 });
+            if ($(".button").css("display") != "none") {
+              this.next();
+            } else {
+              this.smallNext();
+            }
+
+            // console.log(1);
+            // this.smallNext();
+          }, 3000);
+          for (let i = 1; i < 9; i++) {
+            $(`.flower-${i}`).css("display", "none");
+          }
+
+          $(function () {
+            $(".photo-1").addClass("addShow");
+            $(".photo-2").addClass("addShow");
+            setTimeout(() => {
+              $(".photo-2.addShow").find("img")[0].src =
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0UESxobPRbiIVUcrjAZhw5TkWmpBS7SHdSg&usqp=CAU";
+              $(".photo-1.addShow").find("img")[0].src =
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSvTa5-7TjHSHqZtCh2DBwj6qHZJ8TBBkBLQ&usqp=CAU";
+            }, 3500);
+            $(window).scroll(function () {
+              var scrollVal = $(this).scrollTop();
+              if (scrollVal < 680) {
+                $(".photo-1").addClass("addShow");
+                $(".photo-2").addClass("addShow");
+                setTimeout(() => {
+                  $(".photo-2.addShow").find("img")[0].src =
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0UESxobPRbiIVUcrjAZhw5TkWmpBS7SHdSg&usqp=CAU";
+                  $(".photo-1.addShow").find("img")[0].src =
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSvTa5-7TjHSHqZtCh2DBwj6qHZJ8TBBkBLQ&usqp=CAU";
+                }, 3500);
+              } else {
+                $(".photo-1").removeClass("addShow");
+                $(".photo-2").removeClass("addShow");
+              }
+
+              if (scrollVal > 450 && scrollVal < 1000) {
+                setTimeout(() => {
+                  $(" .text:nth-child(1)").addClass("out");
+                }, 200);
+                setTimeout(() => {
+                  $(" .text:nth-child(2)").addClass("out");
+                }, 400);
+                setTimeout(() => {
+                  $(" .text:nth-child(3)").addClass("out");
+                }, 600);
+              } else {
+                $(" .text").removeClass("out");
+              }
+
+              if (scrollVal > 1400) {
+                console.log(scrollVal);
+                $("#slow-word .store").addClass("out");
+                $("#slow-word .show").addClass("out");
+              } else {
+                $("#slow-word .store").removeClass("out");
+                $("#slow-word .show").removeClass("out");
+              }
+
+              if (scrollVal > 2200) {
+                $(".scope").addClass("showPhoto");
+              } else {
+                $(".scope").removeClass("showPhoto");
+              }
+            });
+          });
+        }
+
+        smallBefore() {
+          console.log(count);
+          var count = this.state.value;
+          count--;
+          if (count <= -1) {
+            count = 9;
+          }
+          $(".carpet").css(
+            "transform",
+            `translateX(${-(this.state.smallChange * count)}px)`
+          );
+
+          this.setState({
+            value: count,
+          });
+        }
+        smallNext() {
+          var count = this.state.value;
+          count++;
+          console.log(count);
+          if (count >= 10) {
+            count = 0;
+          }
+
+          $(".carpet").css(
+            "transform",
+            `translateX(${-(this.state.smallChange * count)}px)`
+          );
+
+          this.setState({
+            value: count,
+          });
+        }
+
+        before() {
+          var count = this.state.value;
+          count--;
+          if (count <= -1) {
+            count = 9;
+          }
+          $(".carpet").css(
+            "transform",
+            `translateX(${-(this.state.change * count)}px)`
+          );
+
+          this.setState({
+            value: count,
+          });
+        }
+        next() {
+          var count = this.state.value;
+          count++;
+          if (count >= 10) {
+            count = 0;
+          }
+
+          $(".carpet").css(
+            "transform",
+            `translateX(${-(this.state.change * count)}px)`
+          );
+
+          this.setState({
+            value: count,
+          });
+        }
+
+        grow() {
+          var count = this.state.flowers;
+          console.log(1);
+          if (count == 9) {
+            return;
+          }
+          this.Id = setInterval(() => {
+            for (let i = count; i < count + 1; i++) {
+              $(`.flower-${i}`).css("display", "block");
+            }
+            count++;
+            this.setState({ flowers: count });
+            if (count == 9) {
+              this.setState({ isShow: "block" });
+              return;
+            }
+          }, 1000);
+        }
+        unGrow() {
+          clearInterval(this.Id);
+        }
+        lists() {
+          // console.log(888);
+          $("body").css({
+            overflow: "hidden",
+            backgroundColor: "gray",
+          });
+          $("body").find(".star").toggleClass("add");
+          $("body").find(".uls").toggleClass("add");
+
+          // .find("#all")
+          // .css({ display: "none" });
+        }
+
+        render() {
+          return (
+            <div>
+              <div className="container-fluid">
+                <ul className="uls">
+                  <li>consectetur</li>
+                  <li>mollitia unde</li>
+                  <li>Lorem ipsum,</li>
+                  <li> atque con</li>
+                  <li>cupiditat</li>
+                </ul>
+                <div id="banner" className="row">
+                  <div className="w-100 floor bg-dark"></div>
+                  <div className="items w-100">
+                    <div className="left logo">
+                      <img
+                        src="https://svgsilh.com/svg_v2/1632607.svg"
+                        alt=""
+                      />
+                      <span>花藝坊</span>
+                    </div>
+                    <div className="right w-25">
+                      <i className="fas fa-cart-arrow-down w-25 m-2"></i>
+                      <i className="fas fa-search w-25 m-2"></i>
+                      <i
+                        className="fas fa-bars w-25 m-2"
+                        onClick={this.lists}
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <div className="star w-100 "></div>
+                <div id="all">
+                  <div id="introduce" className="row w-100">
+                    <div className="">
+                      <img
+                        src="https://svgsilh.com/svg_v2/1632607.svg"
+                        alt=""
+                      />{" "}
+                      <div className="text p-4 w-50">
+                        <div className="hole w-100"></div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore impedit, sint cumque architecto maiores
+                        aspernatur animi suscipit mollitia iusto voluptatem,
+                        aliquid reiciendis vero nobis facilis voluptas. Expedita
+                        voluptas fuga quos.
+                        <div className="hole w-100"></div>
+                      </div>
+                      <div className="photo-1">
+                        <img width="100%" src="" alt="" />
+                      </div>
+                      <div className="photo-2">
+                        <img src="" alt="" />
+                      </div>
+                      <button>
+                        <span>ipsum</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div id="ring" className="row w-100">
+                    <div className="branches">
+                      <div className="wrap">
+                        <div className="text ">
+                          <img
+                            width="100%"
+                            src="https://boxy-svg.com/images/logos/logo-full.svg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="text ">
+                          <img
+                            width="100%"
+                            src="https://boxy-svg.com/images/logos/logo-full.svg"
+                            alt=""
+                          />
+                        </div>
+                        <div className="text ">
+                          <img
+                            width="100%"
+                            src="https://boxy-svg.com/images/logos/logo-full.svg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <img
+                        width="45%"
+                        src="https://svgsilh.com/svg/3005547.svg"
+                        alt=""
+                      />
+                      <img
+                        style={{
+                          display: this.state.isShow,
+                        }}
+                        width="15%"
+                        className=" later "
+                        src="https://svgsilh.com/svg_v2/1632607.svg"
+                        alt=""
+                      />
+
+                      <div className="flower-1"></div>
+                      <div className="flower-2"></div>
+                      <div className="flower-3"></div>
+                      <div className="flower-4"></div>
+                      <div className="flower-5"></div>
+                      <div className="flower-6"></div>
+                      <div className="flower-7"></div>
+                      <div className="flower-8"></div>
+                    </div>
+                    <p onMouseDown={this.grow} onMouseUp={this.unGrow}>
+                      HOLD<i className="far fa-hand-point-up"></i>
+                    </p>
+                  </div>
+                  <div id="carousel" className="row w-100 ">
+                    <h2 className="w-100">
+                      <i className="fas fa-users"></i>
+                    </h2>
+                    <p className="w-100">Lorem, ipsum dolor</p>
+                    <div className="wrap">
+                      <div className="carpet">
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                      </div>
+                    </div>
+                    <div className="w-100 time-show d-none">
+                      <span onClick={this.smallBefore}></span>
+                      <span onClick={this.smallNext}></span>
+                    </div>
+                    <div className="w-100">
+                      <div className="button">
+                        <i
+                          className="fas fa-arrow-left"
+                          onClick={this.before}
+                        ></i>
+                        <span></span>
+                        <i
+                          className="fas fa-arrow-right"
+                          onClick={this.next}
+                        ></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="slow-word" className="row">
+                    <div className="w-50 show">
+                      <h2 className="w-100">consectetur adipisicing</h2>
+                      <p className="w-100">ipsum dolor sit amet</p>
+                    </div>
+                    <div className="w-100 store">
+                      <img
+                        src="https://www.hualix.com/application/files/thumbnails/small/5615/3603/2435/str-2.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div id="attach"></div>
+                  <div id="picture" className="row">
+                    <div className="scope">
+                      <div className="photo">
+                        <img
+                          width="100%"
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKl-kml3NEYNBZDVYTi6LLrKPVVJuIS1EpFQ&usqp=CAU"
+                          alt=""
+                        />
+                      </div>
+                      <div className="photo">
+                        <img
+                          width="100%"
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRshC0yCj8W1OVendx845iUOqc0FVHF8ylKWg&usqp=CAU"
+                          alt=""
+                        />
+                      </div>
+                      <div className="photo">
+                        <img
+                          width="100%"
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-fipYeCNydsLiRK20xkgySrxBngW3tpZV9g&usqp=CAU"
+                          alt=""
+                        />
+                      </div>
+                      <div className="photo">
+                        <img
+                          width="100%"
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrM046kKD8lqyV1INFq4dflMhZAyVD_907A&usqp=CAU"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="shake-flower" className="row">
+                  <div className="">
+                    <div class="zd" id="ding">
+                      <i className="far fa-arrow-alt-circle-up"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<Ex />, document.querySelector("#app"));
+    </script>
+  </body>
+</html>

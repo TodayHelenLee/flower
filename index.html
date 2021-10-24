@@ -166,19 +166,21 @@
                   $(" .texts:nth-child(1)").addClass(
                     "animate__animated animate__bounce "
                   );
-                }, 600);
+                }, 500);
                 setTimeout(() => {
                   $(" .texts:nth-child(2)").addClass(
                     "animate__animated animate__bounce "
                   );
-                }, 1200);
+                }, 1100);
                 setTimeout(() => {
                   $(" .texts:nth-child(3)").addClass(
                     "animate__animated animate__bounce "
                   );
-                }, 1800);
+                }, 1700);
               } else {
-                $(" .texts").removeClass("animate__animated animate__bounce");
+                setTimeout(() => {
+                  $(" .texts").removeClass("animate__animated animate__bounce");
+                }, 1000);
               }
 
               if (scrollVal > 1400) {

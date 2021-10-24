@@ -6,6 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
@@ -139,7 +144,7 @@
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0UESxobPRbiIVUcrjAZhw5TkWmpBS7SHdSg&usqp=CAU";
               $(".photo-1.addShow").find("img")[0].src =
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSvTa5-7TjHSHqZtCh2DBwj6qHZJ8TBBkBLQ&usqp=CAU";
-            }, 3500);
+            }, 2500);
             $(window).scroll(function () {
               var scrollVal = $(this).scrollTop();
               if (scrollVal < 680) {
@@ -156,18 +161,24 @@
                 $(".photo-2").removeClass("addShow");
               }
 
-              if (scrollVal > 450 && scrollVal < 1000) {
+              if (scrollVal > 450 && scrollVal < 1200) {
                 setTimeout(() => {
-                  $(" .text:nth-child(1)").addClass("out");
-                }, 200);
-                setTimeout(() => {
-                  $(" .text:nth-child(2)").addClass("out");
-                }, 400);
-                setTimeout(() => {
-                  $(" .text:nth-child(3)").addClass("out");
+                  $(" .texts:nth-child(1)").addClass(
+                    "animate__animated animate__bounce "
+                  );
                 }, 600);
+                setTimeout(() => {
+                  $(" .texts:nth-child(2)").addClass(
+                    "animate__animated animate__bounce "
+                  );
+                }, 1200);
+                setTimeout(() => {
+                  $(" .texts:nth-child(3)").addClass(
+                    "animate__animated animate__bounce "
+                  );
+                }, 1800);
               } else {
-                $(" .text").removeClass("out");
+                $(" .texts").removeClass("animate__animated animate__bounce");
               }
 
               if (scrollVal > 1400) {
@@ -179,10 +190,10 @@
                 $("#slow-word .show").removeClass("out");
               }
 
-              if (scrollVal > 2200) {
-                $(".scope").addClass("showPhoto");
+              if (scrollVal > 2400) {
+                $(".scopeChild").addClass("showPhoto");
               } else {
-                $(".scope").removeClass("showPhoto");
+                $(".scopeChild").removeClass("showPhoto");
               }
             });
           });
@@ -353,26 +364,35 @@
                 <div id="ring" className="row w-100">
                   <div className="branches">
                     <div className="wrap">
-                      <div className="text ">
-                        <img
-                          width="100%"
-                          src="https://boxy-svg.com/images/logos/logo-full.svg"
-                          alt=""
-                        />
+                      <div className="texts ">
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <div class="text">
+                          <img
+                            width="100%"
+                            src="https://boxy-svg.com/images/logos/logo-full.svg"
+                            alt=""
+                          />
+                        </div>
                       </div>
-                      <div className="text ">
-                        <img
-                          width="100%"
-                          src="https://boxy-svg.com/images/logos/logo-full.svg"
-                          alt=""
-                        />
+                      <div className="texts ">
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <div class="text">
+                          <img
+                            width="100%"
+                            src="https://boxy-svg.com/images/logos/logo-full.svg"
+                            alt=""
+                          />
+                        </div>
                       </div>
-                      <div className="text ">
-                        <img
-                          width="100%"
-                          src="https://boxy-svg.com/images/logos/logo-full.svg"
-                          alt=""
-                        />
+                      <div className="texts ">
+                        <div class="text">
+                          <img
+                            width="100%"
+                            src="https://boxy-svg.com/images/logos/logo-full.svg"
+                            alt=""
+                          />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet</p>
                       </div>
                     </div>
                     <img
@@ -451,7 +471,8 @@
                 </div>
                 <div id="attach"></div>
                 <div id="picture" className="row">
-                  <div className="scope">
+                  <div className="scope ">
+                    <div className="scopeChild"></div>
                     <div className="photo">
                       <img
                         width="100%"

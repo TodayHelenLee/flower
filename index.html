@@ -147,21 +147,21 @@
             }, 2500);
             $(window).scroll(function () {
               var scrollVal = $(this).scrollTop();
-              if (scrollVal < 680) {
-                $(".photo-1").addClass("addShow");
-                $(".photo-2").addClass("addShow");
-                setTimeout(() => {
-                  $(".photo-2.addShow").find("img")[0].src =
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0UESxobPRbiIVUcrjAZhw5TkWmpBS7SHdSg&usqp=CAU";
-                  $(".photo-1.addShow").find("img")[0].src =
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSvTa5-7TjHSHqZtCh2DBwj6qHZJ8TBBkBLQ&usqp=CAU";
-                }, 3500);
-              } else {
-                $(".photo-1").removeClass("addShow");
-                $(".photo-2").removeClass("addShow");
-              }
+              // if (scrollVal < 680) {
+              //   $(".photo-1").addClass("addShow");
+              //   $(".photo-2").addClass("addShow");
+              //   setTimeout(() => {
+              //     $(".photo-2.addShow").find("img")[0].src =
+              //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0UESxobPRbiIVUcrjAZhw5TkWmpBS7SHdSg&usqp=CAU";
+              //     $(".photo-1.addShow").find("img")[0].src =
+              //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSvTa5-7TjHSHqZtCh2DBwj6qHZJ8TBBkBLQ&usqp=CAU";
+              //   }, 3500);
+              // } else {
+              //   $(".photo-1").removeClass("addShow");
+              //   $(".photo-2").removeClass("addShow");
+              // }
 
-              if (scrollVal > 450 && scrollVal < 1200) {
+              if (scrollVal > 400 && scrollVal < 1200) {
                 setTimeout(() => {
                   $(" .texts:nth-child(1)").addClass(
                     "animate__animated animate__bounce "
@@ -190,7 +190,7 @@
                 $("#slow-word .show").removeClass("out");
               }
 
-              if (scrollVal > 2400) {
+              if (scrollVal > 2550) {
                 $(".scopeChild").addClass("showPhoto");
               } else {
                 $(".scopeChild").removeClass("showPhoto");
